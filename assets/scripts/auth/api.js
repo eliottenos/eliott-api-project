@@ -44,9 +44,21 @@ const changePassword = (data) => {
   })
 }
 
+const createLocation = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createLocation
 }
