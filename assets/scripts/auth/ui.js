@@ -45,6 +45,34 @@ const signOutFailure = (error) => {
   console.log('error on sign out in ', error)
 }
 
+const createLocationSuccess = (data) => {
+  console.log(data)
+  $('.auth').text('You successully created a location!')
+}
+
+const createLocationFailure = (error) => {
+  console.log('error on create location in ', error)
+}
+
+const updateLocationSuccess = (data) => {
+  console.log(data)
+  $('.auth').text('You updated a location!')
+}
+
+const updateLocationFailure = (error) => {
+  console.log('error on update location in ', error)
+}
+
+const deleteLocationSuccess = (data) => {
+  console.log('success delete location')
+  $('.auth').text('You deleted a location!')
+  store.location = null
+}
+
+const deleteLocationFailure = (error) => {
+  console.log('error on delete location in ', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -53,5 +81,11 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createLocationSuccess,
+  createLocationFailure,
+  updateLocationSuccess,
+  updateLocationFailure,
+  deleteLocationSuccess,
+  deleteLocationFailure
 }

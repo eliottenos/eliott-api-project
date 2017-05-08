@@ -2,11 +2,11 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const authLogic = require('./auth/events.js')
+const locationEvents = require('./auth/events.js')
 
 $(() => {
   setAPIOrigin(location, config)
-  authLogic.addHandlers()
+  locationEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file
@@ -14,3 +14,10 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 require('./example')
+
+$(() => {
+  // $('.locations').on('submit', locationEvents.onGetLocations)
+  $('.location-delete').on('submit', locationEvents.onDeleteLocation)
+  $('.location-update').on('submit', locationEvents.onUpdateLocation)
+  $('.location-create').on('submit', locationEvents.onCreateLocation)
+})

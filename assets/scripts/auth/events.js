@@ -35,7 +35,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onLocationSubmit = function (event) {
+const onCreateLocation = function (event) {
   const data = getFormFields(event.target)
   event.preventDefault()
   api.createLocation(data)
@@ -43,15 +43,32 @@ const onLocationSubmit = function (event) {
     .catch(ui.createLocationFailure)
 }
 
+const onUpdateLocation = function (event) {
+  event.preventDefault()
+  console.log('inside of onUpdateLocation')
+  const data = getFormFields(event.target)
+  api.UpdateLocation(data)
+  .then(ui.updateLocationSuccess)
+  .catch(ui.updateLocationFailure)
+}
+
+const onDeleteLocation = function (event) {
+  event.preventDefault()
+  api.deleteLocation()
+    .then(ui.deleteLocationSuccess)
+    .catch(ui.deleteLocationFailure)
+}
+
 const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-up').on('submit', onSignUp)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#location-submit').on('submit', onLocationSubmit)
+  $('#location-create').on('submit', onCreateLocation)
+  $('#location-update').on('submit', onUpdateLocation)
+  $('#location-delete').on('submit', onDeleteLocation)
 }
 
 module.exports = {
-  addHandlers,
-  onLocationSubmit
+  addHandlers
 }

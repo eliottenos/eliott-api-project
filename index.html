@@ -18,71 +18,41 @@
 
       <form id="sign-up" class="form-inline">
   <div class="form-group">
-    <input type="email" class="form-control" id="exampleInputName2" placeholder="email">
+    <input type="email" name="credentials[email]" value="" placeholder="email">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputEmail2" placeholder="password">
+    <input type="password" name="credentials[password]" value="" placeholder="password">
   </div>
-  <button type="submit" class="btn btn-default">Sign Up</button>
+  <div class="form-group">
+  <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+</div>
+  <input type="submit" name="submit" value="Sign Up!">
 </form>
 
 <form id="sign-in" class="form-inline">
   <div class="form-group">
-    <input type="email" class="form-control" id="exampleInputName2" placeholder="email">
+    <input type="email" name="credentials[email]" value="" placeholder="email">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputEmail2" placeholder="password">
+    <input type="password" name="credentials[password]" value="" placeholder="password">
   </div>
-  <button type="submit" class="btn btn-default">Sign In</button>
+  <input type="submit" name="submit" value="Sign In">
 </form>
 
 <form id="change-password" class="form-inline">
   <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputName2" placeholder="old password">
+    <input type="password" name="credentials[password]" value="" placeholder="old password">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="exampleInputEmail2" placeholder="new password">
+    <input type="password" name="credentials[password]" value="" placeholder="new password">
   </div>
-  <button type="submit" class="btn btn-default">Change Password</button>
+  <input type="submit" name="submit" value="Change Password">
 </form>
 
 <form id="sign-out" class="form-inline">
-        <button type="submit" class="btn btn-default">Sign Out</button>
+        <input type="submit" name="submit" value="Sign Out">
     </form>
 
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        <textarea class="form-control" rows="3"></textarea>
-        <input id="location-submit" class="btn btn-default" type="submit" value="Submit">
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        <textarea class="form-control" rows="3"></textarea>
-        <input id="location-submit" class="btn btn-default" type="submit" value="Submit">
-      </div>
-    </div>
-  </div>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
@@ -94,11 +64,37 @@
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        <textarea class="form-control" rows="3"></textarea>
-        <input id="location-submit" class="btn btn-default" type="submit" value="Submit">
+        <h3>Create Location</h3>
+        <form class='locations' id='location-create'>
+        <div class="form-group">
+          <input type="text" name="location[city]" id="location-city-update" placeholder="City">
+          <input type="text" name="location[country]" country="location-country-update" placeholder="Country">
+          <input type="text" name="location[comment]" comment="location-comment-update" placeholder="Comment">
+          <input type="number" name="location[zipcode]" zipcode="location-zipcode-update" placeholder="Zipcode">
+        </div>
+        <input type="submit" name="submit" value="Submit">
+      </form>
+
+      <h3>Update Location</h3>
+      <form class='locations' id='location-update'>
+       <div class="form-group">
+         <input type="text" name="location[city]" placeholder="city">
+         <input type="text" name="location[country]" placeholder="country">
+         <input type="text" name="location[comment]" placeholder="comment">
+         <input type="number" name="location[zipcode]" placeholder="zipcode">
+       </div>
+       <input type="submit" name="submit" value="Submit">
+     </form>
+
+      <h3>Delete Location</h3>
+        <form class='locations' id='location-delete'>
+        <div class="form-group">
+          <input type="text" name="location[city]" id="location-city-delete" placeholder="City Here">
+        </div>
+        <input type="submit" name="submit" value="Submit">
+      </form>
       </div>
     </div>
   </div>
-</div>
     </body>
 </html>

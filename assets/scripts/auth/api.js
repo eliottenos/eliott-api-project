@@ -55,10 +55,34 @@ const createLocation = (data) => {
   })
 }
 
+const DeleteLocation = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const UpdateLocation = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createLocation
+  createLocation,
+  DeleteLocation,
+  UpdateLocation
 }
