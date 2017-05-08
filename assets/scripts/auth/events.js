@@ -47,7 +47,7 @@ const onUpdateLocation = function (event) {
   event.preventDefault()
   console.log('inside of onUpdateLocation')
   const data = getFormFields(event.target)
-  api.UpdateLocation(data)
+  api.updateLocation(data)
   .then(ui.updateLocationSuccess)
   .catch(ui.updateLocationFailure)
 }
@@ -59,6 +59,14 @@ const onDeleteLocation = function (event) {
     .catch(ui.deleteLocationFailure)
 }
 
+const onWeather = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.weather(data)
+    .then(ui.weatherSuccess)
+    .catch(ui.weatherFailure)
+}
+
 const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-up').on('submit', onSignUp)
@@ -67,6 +75,7 @@ const addHandlers = () => {
   $('#location-create').on('submit', onCreateLocation)
   $('#location-update').on('submit', onUpdateLocation)
   $('#location-delete').on('submit', onDeleteLocation)
+  $('#weather').on('submit', onWeather)
 }
 
 module.exports = {

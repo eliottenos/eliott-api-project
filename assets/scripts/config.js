@@ -8,4 +8,8 @@ const config = {
   }
 }
 
+// config.service {
+//    :api_key => 'd118b6ec8394c5fc'
+// }
+
 module.exports = config

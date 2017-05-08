@@ -20,4 +20,5 @@ $(() => {
   $('.location-delete').on('submit', locationEvents.onDeleteLocation)
   $('.location-update').on('submit', locationEvents.onUpdateLocation)
   $('.location-create').on('submit', locationEvents.onCreateLocation)
+  $('.weather').on('submit', locationEvents.onWeather)
 })

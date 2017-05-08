@@ -73,6 +73,16 @@ const deleteLocationFailure = (error) => {
   console.log('error on delete location in ', error)
 }
 
+const weatherSuccess = (data) => {
+  console.log(data)
+  $('.auth').text('weather')
+}
+
+const weatherFailure = (error) => {
+  console.log(error)
+  $('.auth').text('not a valid zipcide')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -87,5 +97,7 @@ module.exports = {
   updateLocationSuccess,
   updateLocationFailure,
   deleteLocationSuccess,
-  deleteLocationFailure
+  deleteLocationFailure,
+  weatherSuccess,
+  weatherFailure
 }
