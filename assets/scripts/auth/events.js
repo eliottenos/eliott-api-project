@@ -64,11 +64,11 @@ const onUpdateLocation = function (event) {
   event.preventDefault()
   console.log('inside of onUpdateLocation')
   const location = getFormFields(event.target)
-  if (location.id.length !== 0) {
-    api.updateLocation(location)
+  // if (location.id.length !== 0) {
+  api.updateLocation(location)
   .then(ui.updateLocationSuccess)
   .catch(ui.updateLocationFailure)
-  }
+  // }
 }
 
 const onDeleteLocation = function (event) {

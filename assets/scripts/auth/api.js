@@ -81,9 +81,9 @@ const deleteLocation = (data) => {
   })
 }
 
-const updateLocation = (data) => {
+const updateLocation = (id, data) => {
   return $.ajax({
-    url: config.apiOrigin + '/update-location' + data.id,
+    url: config.apiOrigin + '/update-location' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
