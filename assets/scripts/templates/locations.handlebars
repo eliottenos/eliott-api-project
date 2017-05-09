@@ -1,0 +1,23 @@
+{{#each locations as |location|}}
+
+  <ul data-id="{{location.id}}"> <li>City: {{location.city}}</li></ul>
+  <div>
+    <li>{{#if location.country}}
+      {{location.country}}</li>
+    {{else}}
+      No country.
+    {{/if}}
+    <li>{{#if location.comment}}
+      {{location.comment}}</li>
+    {{else}}
+      No comment.
+    {{/if}}
+    <li>{{#if location.zipcode}}
+      {{location.zipcode}}</li>
+    {{else}}
+      No zipcode.
+    {{/if}}
+    <button data-id="{{location.id}}" id="removeLocationButton" class="btn btn-default">Remove!</button>
+  </div>
+
+{{/each}}

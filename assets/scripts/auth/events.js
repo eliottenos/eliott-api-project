@@ -1,4 +1,5 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
+const locationListing = require('../templates/locations.handlebars')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -43,6 +44,22 @@ const onCreateLocation = function (event) {
     .catch(ui.createLocationFailure)
 }
 
+const onGetLocation = function (event) {
+  console.log(event)
+  // debugger
+  event.preventDefault()
+  const location = getFormFields(event.target).location
+  // debugger
+  console.log('location', location)
+  if (location.id.length !== 0) {
+    api.getLocation(location)
+      .then(ui.getLocationSuccess)
+      // .catch(ui.getLocationError)
+  // } else {
+  //   console.log('Please provide a location id!')
+  }
+}
+
 const onUpdateLocation = function (event) {
   event.preventDefault()
   console.log('inside of onUpdateLocation')
@@ -54,18 +71,26 @@ const onUpdateLocation = function (event) {
 
 const onDeleteLocation = function (event) {
   event.preventDefault()
-  api.deleteLocation()
-    .then(ui.deleteLocationSuccess)
-    .catch(ui.deleteLocationFailure)
+  const location = getFormFields(event.target).location
+  console.log('location', location)
+  if (location.id.length !== 0) {
+    api.deleteLocation(location)
+    // .then(ui.deleteLocationSuccess)
+    // .catch(ui.deleteLocationFailure)
+  // } else {
+  //   console.log('Please provide a location id!')
+  }
 }
 
-const onWeather = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.weather(data)
-    .then(ui.weatherSuccess)
-    .catch(ui.weatherFailure)
-}
+// const onWeather = function (event) {
+//   const data = getFormFields(this)
+//   event.preventDefault()
+//   api.weather(data)
+//     .then(ui.weatherSuccess)
+//     .catch(ui.weatherFailure)
+// }
+
+locationListing()
 
 const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
@@ -75,7 +100,8 @@ const addHandlers = () => {
   $('#location-create').on('submit', onCreateLocation)
   $('#location-update').on('submit', onUpdateLocation)
   $('#location-delete').on('submit', onDeleteLocation)
-  $('#weather').on('submit', onWeather)
+  // $('#weather').on('submit', onWeather)
+  $('#location-get').on('submit', onGetLocation)
 }
 
 module.exports = {

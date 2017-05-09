@@ -55,9 +55,24 @@ const createLocation = (data) => {
   })
 }
 
-const deleteLocation = (data) => {
+const getLocation = (data) => {
+  // debugger
+  console.log('api.data', data)
+  console.log('api.data.id', data.id)
   return $.ajax({
-    url: config.apiOrigin + '/destroy-location',
+    url: config.apiOrigin + '/locations/' + data.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const deleteLocation = (data) => {
+  console.log('data', data)
+  return $.ajax({
+    url: config.apiOrigin + '/destroy-location/' + data.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -77,16 +92,16 @@ const updateLocation = (data) => {
   })
 }
 
-const weather = (data) => {
-  return $.ajax({
-    url: config.apiOrigin + '/weather/',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: data
-  })
-}
+// const weather = (data) => {
+//   return $.ajax({
+//     url: config.apiOrigin + '/weather/',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: data
+//   })
+// }
 
 module.exports = {
   signUp,
@@ -96,5 +111,6 @@ module.exports = {
   createLocation,
   deleteLocation,
   updateLocation,
-  weather
+  getLocation
+  // weather
 }

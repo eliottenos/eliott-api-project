@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const showLocationTemplate = require('../templates/locations.handlebars')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -54,6 +55,16 @@ const createLocationFailure = (error) => {
   console.log('error on create location in ', error)
 }
 
+const getLocationSuccess = (data) => {
+  console.log($(data)[0].location)
+  // const showLocationHtml = showLocationTemplate({ location: data.locations })
+  $('.getBlank').append($(data)[0].location.city)
+}
+
+const getLocationFailure = (error) => {
+  console.log('error on get location in ', error)
+}
+
 const updateLocationSuccess = (data) => {
   console.log(data)
   $('.auth').text('You updated a location!')
@@ -66,7 +77,6 @@ const updateLocationFailure = (error) => {
 const deleteLocationSuccess = (data) => {
   console.log('success delete location')
   $('.auth').text('You deleted a location!')
-  store.location = null
 }
 
 const deleteLocationFailure = (error) => {
@@ -94,6 +104,8 @@ module.exports = {
   signOutFailure,
   createLocationSuccess,
   createLocationFailure,
+  getLocationSuccess,
+  getLocationFailure,
   updateLocationSuccess,
   updateLocationFailure,
   deleteLocationSuccess,
