@@ -83,7 +83,7 @@ const deleteLocation = (data) => {
 
 const updateLocation = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/update-location',
+    url: config.apiOrigin + '/update-location' + data.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

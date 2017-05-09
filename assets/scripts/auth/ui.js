@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-const showLocationTemplate = require('../templates/locations.handlebars')
+// const showLocationTemplate = require('../templates/locations.handlebars')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -56,9 +56,12 @@ const createLocationFailure = (error) => {
 }
 
 const getLocationSuccess = (data) => {
+  console.log('this one', data)
   console.log($(data)[0].location)
-  // const showLocationHtml = showLocationTemplate({ location: data.locations })
   $('.getBlank').append($(data)[0].location.city)
+  $('.getBlank2').append($(data)[0].location.country)
+  $('.getBlank3').append($(data)[0].location.comment)
+  $('.getBlank4').append($(data)[0].location.zipcode)
 }
 
 const getLocationFailure = (error) => {

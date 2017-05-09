@@ -1,5 +1,5 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
-const locationListing = require('../templates/locations.handlebars')
+// const locationListing = require('../templates/locations.handlebars')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -63,10 +63,12 @@ const onGetLocation = function (event) {
 const onUpdateLocation = function (event) {
   event.preventDefault()
   console.log('inside of onUpdateLocation')
-  const data = getFormFields(event.target)
-  api.updateLocation(data)
+  const location = getFormFields(event.target)
+  if (location.id.length !== 0) {
+    api.updateLocation(location)
   .then(ui.updateLocationSuccess)
   .catch(ui.updateLocationFailure)
+  }
 }
 
 const onDeleteLocation = function (event) {
@@ -90,7 +92,7 @@ const onDeleteLocation = function (event) {
 //     .catch(ui.weatherFailure)
 // }
 
-locationListing()
+// locationListing()
 
 const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
