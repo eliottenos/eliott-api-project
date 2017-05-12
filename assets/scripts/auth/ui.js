@@ -16,6 +16,7 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log(data)
   $('.auth').text('You successully signed in!')
+  $('.locations').show()
   // change display property with jq
   // store user
   store.user = data.user
@@ -39,6 +40,7 @@ const changePasswordFailure = (error) => {
 const signOutSuccess = (data) => {
   console.log('success sign out')
   $('.auth').text('You signed out!')
+  $('.locations').hide()
   store.user = null
 }
 
