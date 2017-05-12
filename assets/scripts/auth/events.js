@@ -54,7 +54,7 @@ const onGetLocation = function (event) {
   if (location.id.length !== 0) {
     api.getLocation(location)
       .then(ui.getLocationSuccess)
-      // .catch(ui.getLocationError)
+      .catch(ui.getLocationError)
   // } else {
   //   console.log('Please provide a location id!')
   }
@@ -62,10 +62,9 @@ const onGetLocation = function (event) {
 
 const onUpdateLocation = function (event) {
   event.preventDefault()
-  console.log('inside of onUpdateLocation')
-  const location = getFormFields(event.target)
-  // if (location.id.length !== 0) {
-  api.updateLocation(location)
+  // console.log('inside of onUpdateLocation')
+  const data = getFormFields(event.target)
+  api.updateLocation(data)
   .then(ui.updateLocationSuccess)
   .catch(ui.updateLocationFailure)
   // }
@@ -77,8 +76,8 @@ const onDeleteLocation = function (event) {
   console.log('location', location)
   if (location.id.length !== 0) {
     api.deleteLocation(location)
-    // .then(ui.deleteLocationSuccess)
-    // .catch(ui.deleteLocationFailure)
+    .then(ui.updateLocationSuccess)
+    .catch(ui.updateLocationFailure)
   // } else {
   //   console.log('Please provide a location id!')
   }

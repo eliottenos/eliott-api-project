@@ -48,7 +48,23 @@ const signOutFailure = (error) => {
 
 const createLocationSuccess = (data) => {
   console.log(data)
-  $('.auth').text('You successully created a location!')
+  $('.createSuccess').empty()
+  $('.createBlank').empty()
+  $('.createBlank1').empty()
+  $('.createBlank2').empty()
+  $('.createBlank3').empty()
+  $('.createBlank4').empty()
+  $('.createSuccess').text('You successully created a location!')
+  $('.createBlank').text('ID: ')
+  $('.createBlank').append($(data)[0].location.id)
+  $('.createBlank1').text('City: ')
+  $('.createBlank1').append($(data)[0].location.city)
+  $('.createBlank2').text('Country: ')
+  $('.createBlank2').append($(data)[0].location.country)
+  $('.createBlank3').text('Comment: ')
+  $('.createBlank3').append($(data)[0].location.comment)
+  $('.createBlank4').text('Zipcode: ')
+  $('.createBlank4').append($(data)[0].location.zipcode)
 }
 
 const createLocationFailure = (error) => {
@@ -58,14 +74,34 @@ const createLocationFailure = (error) => {
 const getLocationSuccess = (data) => {
   console.log('this one', data)
   console.log($(data)[0].location)
-  $('.getBlank').append($(data)[0].location.city)
+  $('.getSuccess').empty()
+  $('.getBlank').empty()
+  $('.getBlank1').empty()
+  $('.getBlank2').empty()
+  $('.getBlank3').empty()
+  $('.getBlank4').empty()
+  $('.getSuccess').text('You successully retreived a location!')
+  $('.getBlank').text('ID: ')
+  $('.getBlank').append($(data)[0].location.id)
+  $('.getBlank1').text('City: ')
+  $('.getBlank1').append($(data)[0].location.city)
+  $('.getBlank2').text('Country: ')
   $('.getBlank2').append($(data)[0].location.country)
+  $('.getBlank3').text('Comment: ')
   $('.getBlank3').append($(data)[0].location.comment)
+  $('.getBlank4').text('Zipcode: ')
   $('.getBlank4').append($(data)[0].location.zipcode)
 }
 
 const getLocationFailure = (error) => {
   console.log('error on get location in ', error)
+  $('.getSuccess').empty()
+  $('.getBlank').empty()
+  $('.getBlank1').empty()
+  $('.getBlank2').empty()
+  $('.getBlank3').empty()
+  $('.getBlank4').empty()
+  $('.getSuccess').text('Cannot find location!')
 }
 
 const updateLocationSuccess = (data) => {
@@ -80,6 +116,7 @@ const updateLocationFailure = (error) => {
 const deleteLocationSuccess = (data) => {
   console.log('success delete location')
   $('.auth').text('You deleted a location!')
+  $('.form-reset').trigger('reset')
 }
 
 const deleteLocationFailure = (error) => {
