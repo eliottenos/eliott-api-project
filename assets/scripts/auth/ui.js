@@ -127,7 +127,7 @@ const deleteLocationFailure = (error) => {
 
 const weatherSuccess = (data) => {
   console.log(data)
-  $('.auth').text('weather')
+  $('.weatherDiv').append($(data).data.id)
 }
 
 const weatherFailure = (error) => {

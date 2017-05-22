@@ -92,9 +92,15 @@ const updateLocation = (data) => {
   })
 }
 
+// $('#weather').click(function() {
+// $.ajax({ url : "http://api.wunderground.com/api/d118b6ec8394c5fc/geolookup/forecast/q/US/"+zipCode+".json",
+// dataType : "jsonp",
+// success : console.log(parsed_json)
+// }}
+
 // const weather = (data) => {
 //   return $.ajax({
-//     url: config.apiOrigin + '/weather/',
+//     url: 'http://api.wunderground.com/api/d118b6ec8394c5fc/geolookup/forecast/q/US/' + data.zipCode + '.json',
 //     method: 'GET',
 //     headers: {
 //       Authorization: 'Token token=' + store.user.token

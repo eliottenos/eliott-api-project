@@ -13,7 +13,7 @@ Also I would like to connect to a 3rd party weather API so that users can search
 for the weather.  I have already signed up with the API and have the key to implement this.
 
 
-Wireframe: http://imgur.com/qZ8gZ8E
+[Wireframe](http://imgur.com/qZ8gZ8E)
 
 User Story:
 
@@ -30,6 +30,6 @@ After Sign In:
 - Update Location
 - Delete Location
 
-Rails Repo: https://github.com/eliottenos/eliott-rails-api
+[Rails Repo](https://github.com/eliottenos/eliott-rails-api)
 
-Live App: eliottenos.github.io/eliott-api-project
+[Live App](eliottenos.github.io/eliott-api-project)
