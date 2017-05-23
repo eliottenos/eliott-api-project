@@ -102,7 +102,7 @@ const addHandlers = () => {
   $('#location-create').on('submit', onCreateLocation)
   $('#location-update').on('submit', onUpdateLocation)
   $('#location-delete').on('submit', onDeleteLocation)
-  $('#weather').on('submit', onWeather)
+  // $('#weather').on('submit', onWeather)
   $('#location-get').on('submit', onGetLocation)
 }
 
